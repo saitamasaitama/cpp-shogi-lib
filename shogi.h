@@ -37,14 +37,25 @@ namespace SHOGI
 
   struct Koma
   {
-
-    /* data */
+    int id;
+    ORIGIN_TYPE type;
+    AXIS_TYPE axis;
+    Position position;
+    bool isStock false;
+    bool nari false;
+    
+    MOVE_TYPE MoveType(){
+    //ここに分岐書く
+    } 
   };
 
   struct shogi
   {
 
-  } struct Position
+  }
+  
+  
+  struct Position
   {
     int x = 0;
     int y = 0;
@@ -60,16 +71,21 @@ namespace SHOGI
 
   struct Player
   {
+    Session* Session;
     AXIS_TYPE axis;
+    string name;
+    std::vector<Koma> units();
     
-    /* data */
+    
   };
   
 
   struct Session
   {
     std::vector<Hand> history();
-
+    std::vector<Koma> komas();
+    std::vector<Player> players();
+    
 
   };
 
